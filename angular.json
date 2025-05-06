@@ -36,30 +36,65 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "input": "src/cf",
+                  "output": "/",
+                  "glob": "*.json"
                 },
                 {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "input": "src/cf/config",
+                  "output": "/",
+                  "glob": "*.json"
                 }
               ],
-              "outputHashing": "all"
-            },
-            "development": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
+                }
+              ]
+            },
+            "development": {
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "input": "src/cf",
+                  "output": "/",
+                  "glob": "*.json"
+                },
+                {
+                  "input": "src/cf/config",
+                  "output": "/",
+                  "glob": "*.json"
+                }
+              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
